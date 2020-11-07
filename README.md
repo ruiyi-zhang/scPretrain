@@ -21,5 +21,5 @@ logistic regression and support vector machines. scPretrain is able to effective
 amount of unlabelled data and be applied to annotating increasingly generated scRNA-seq datasets.
 
 # Model Architecture
-<img src="model.jpeg" height="300"/>
+<img src="model.jpg" height="300"/>
 
