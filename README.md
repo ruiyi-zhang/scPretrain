@@ -23,3 +23,8 @@ amount of unlabelled data and be applied to annotating increasingly generated sc
 # Model Architecture
 <img src="model.jpg" height="300"/>
 
+# Requirements
+'''
+pip install -r requirements.txt
+'''
+
