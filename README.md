@@ -28,3 +28,23 @@ amount of unlabelled data and be applied to annotating increasingly generated sc
 pip install -r requirements.txt
 ```
 
+# Experiment
+
+pre-training step
+
+phase 1:
+```
+python main.py --cuda --is_pretrain --kmeans 
+```
+
+phase 2:
+```
+python main.py --cuda --is_pretrain --kmeans --pretrain_output
+```
+
+fine-tuning step
+
+```
+python main.py --cuda --kmeans 
+```
+
