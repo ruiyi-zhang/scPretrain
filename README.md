@@ -27,6 +27,9 @@ amount of unlabelled data and be applied to annotating increasingly generated sc
 ```
 pip install -r requirements.txt
 ```
+# Datasets
+automatically download from https://cblast.gao-lab.org/download
+inside folder: /dataset/
 
 # Experiment
 
