@@ -23,8 +23,9 @@ parser.add_argument('--pretrain_output',action='store_true')
 parser.add_argument('--pca_ft',action='store_true')
 parser.add_argument('--pca_dim',type=int,default=500)
 parser.add_argument('--pca_pt',action='store_true')
-parser.add_argument('--pretrained_model',type=str)
-parser.add_argument('--save_model',type=str)
+parser.add_argument('--pretrained_model',type=str,default='pretrain/scPretrain.out')
+parser.add_argument('--save_model',type=str,default='pretrain/scPretrain.out')
+parser.add_argument('--save_result',type=str,default='results/result.out')
 
 args=parser.parse_args()
 mixed=args.mixed
@@ -50,3 +51,4 @@ pca_pt=args.pca_pt
 pca_dim=args.pca_dim
 pretrained_model=args.pretrained_model
 save_model=args.save_model
+save_result=args.save_result

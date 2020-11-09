@@ -23,7 +23,7 @@ else:
         pretrain=torch.load(f)
     for ft_name in tqdm(dataset_name['mouse']+dataset_name['human']):
         if ft_name in unlabelled:continue
-        with open('result_pca2_5.out','a') as f:
+        with open(config.save_result,'a') as f:
             f.write(ft_name+'\n')
             loader_tr,loader_val,loader_tst,label_num,num_g,ft_gene_list=get_finetune_loader(ft_name,True)
             loader_tr2,loader_val2,loader_tst2,label_num2,num_g2,ft_gene_list2=get_finetune_loader(ft_name,False)

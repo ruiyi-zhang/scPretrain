@@ -51,3 +51,10 @@ fine-tuning step
 python main.py --cuda --kmeans 
 ```
 
+# Figures
+
+Create the scatter plots of Accuracy, Cohen's Kappa, AUPRC, AUROC, clustering etc.
+
+```
+python fig.py
+```

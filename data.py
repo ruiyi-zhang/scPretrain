@@ -107,7 +107,35 @@ def get_gene_list(data_list):
             gene_list=pickle.load(f)
         return gene_list
     else:
-        pass
+        gene_map=get_gene_map()
+        for k,v in enumerate(dataset_name['mouse']):
+            if k is 0:
+                genes_m=set(h5py.File(v+'.h5','r')['var_names'])
+            else:
+                genes_m=genes_m|set(h5py.File(v+'.h5','r')['var_names'])
+        for k,v in enumerate(dataset_name['human']):
+            if k is 0:
+                genes=set(h5py.File(v+'.h5','r')['var_names'])
+            else:
+                genes=genes|set(h5py.File(v+'.h5','r')['var_names'])
+        human_genes=[]
+        mouse_genes=[]
+        cnt=0
+        for g in genes:
+            gene=str(g)[2:-1].upper()
+            if gene in gene_map.keys():
+                human_genes.append(gene_map[gene])
+                cnt+=1
+            else:
+                human_genes.append(gene)
+        
+        for g in genes_m:
+            gene=str(g)[2:-1].upper()
+            mouse_genes.append(gene)
+        gene_lst=list(set(human_genes)&set(mouse_genes))
+        with open('dataset/gene_lst.p','wb') as f:
+            pickle.dump(gene_lst,f)    
+    return gene_list
 
 def run_kmeans(x, nmb_clusters):
     n_data, d = x.shape
