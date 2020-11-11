@@ -7,7 +7,7 @@ import config
 from sklearn.metrics import accuracy_score,silhouette_score,adjusted_rand_score
 from data import dataset_name,unlabelled,run_kmeans
 
-with open('pretrain_3clus_out19.pt','rb') as f:
+with open(config.pretrained_model,'rb') as f:
     embed=torch.load(f)
 
 sil=[]

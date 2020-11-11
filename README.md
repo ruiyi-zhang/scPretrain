@@ -51,6 +51,12 @@ fine-tuning step
 python main.py --cuda --kmeans 
 ```
 
+other off-the-shelf classifiers (e.g SVM)
+
+```
+python rf_svm_lr.py --clf svm 
+```
+
 # Figures
 
 Create the scatter plots of Accuracy, Cohen's Kappa, AUPRC, AUROC, clustering etc.

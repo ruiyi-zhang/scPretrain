@@ -91,15 +91,25 @@ for d in tqdm(pretrain_name):
     label_train2=label2[:num_train]
     label_test2=label2[num_train:]
 
-    #rfclf=RandomForestClassifier(max_depth=5,n_estimators=10,n_jobs=-1)
-    #rfclf=LogisticRegression(n_jobs=-1,max_iter=10000)
-    rfclf=SVC(kernel='linear')
+    if config.clf is 'rf':
+        rfclf=RandomForestClassifier(max_depth=5,n_estimators=10,n_jobs=-1)
+    elif config.clf is 'lr':
+        rfclf=LogisticRegression(n_jobs=-1,max_iter=10000)
+    elif config.clf is 'svm':
+        rfclf=SVC(kernel='linear')
+    else:
+        raise AssertionError
     rfclf.fit(feature_train1,label_train1)
     a,b=(multi_auprc_auroc(rfclf.predict(feature_test1),label_test1,max(label)+1))
 
-    #rfclf=RandomForestClassifier(max_depth=5,n_estimators=10,n_jobs=-1)
-    #rfclf=LogisticRegression(n_jobs=-1,max_iter=10000)
-    rfclf=SVC(kernel='linear')
+    if config.clf is 'rf':
+        rfclf=RandomForestClassifier(max_depth=5,n_estimators=10,n_jobs=-1)
+    elif config.clf is 'lr':
+        rfclf=LogisticRegression(n_jobs=-1,max_iter=10000)
+    elif config.clf is 'svm':
+        rfclf=SVC(kernel='linear')
+    else:
+        raise AssertionError
     rfclf.fit(feature_train2,label_train2)
     c,d=(multi_auprc_auroc(rfclf.predict(feature_test2),label_test2,max(label)+1))
 
