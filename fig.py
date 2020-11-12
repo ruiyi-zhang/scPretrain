@@ -2,6 +2,7 @@ import config
 import re
 import matplotlib.pyplot as plt
 import numpy as np
+import matplotlib.ticker as ticker
 
 from tqdm import tqdm
 from matplotlib.pyplot import MultipleLocator
@@ -100,3 +101,39 @@ plt.yticks(fontsize=20)
 plt.title('AUROC',fontsize=30)
 plt.savefig('figs/nn_auroc.png')
 
+with open('svm.p','rb') as f:
+    pt_auprc,pt_auroc,ft_auprc,ft_auroc=pickle.load(f)
+
+l=60
+plt.figure(figsize=[5,5],dpi=600)
+x=np.linspace(0.5,1,100)
+plt.plot(x,x,color='grey',linestyle='--')
+line=np.zeros(l)+0.001
+color=['g' for i in range(l)]
+plt.scatter(ft_auprc,pt_auprc,linewidths=line,c=color)
+
+font={'size':30}
+plt.ylabel('scPretrain',fontdict=font)
+plt.xlabel('Without pre-training',fontdict=font)
+plt.yticks(fontsize=20)
+plt.xticks(fontsize=20)
+plt.title('LR-based AUPRC',fontsize=30)
+plt.gca().yaxis.set_major_formatter(ticker.FormatStrFormatter('%.1f'))
+plt.savefig('figs/svm_auprc.png')
+
+plt.figure(figsize=[5,5],dpi=600)
+x=np.linspace(0.7,1,100)
+plt.plot(x,x,color='grey',linestyle='--')
+line=np.zeros(l)+0.001
+color=['g' for i in range(l)]
+plt.scatter(ft_auroc,pt_auroc,linewidths=line,c=color)
+font={'size':30}
+plt.ylabel('scPretrain',fontdict=font)
+plt.xlabel('Without pre-training',fontdict=font)
+plt.xticks([0.7,0.8,0.9,1],fontsize=20)
+plt.yticks([0.7,0.8,0.9,1],fontsize=20)
+#plt.gca().xaxis.set_major_locator(MultipleLocator(0.1))
+plt.title('SVM-based AUROC',fontsize=30)
+plt.gca().yaxis.set_major_formatter(ticker.FormatStrFormatter('%.1f'))
+plt.gca().xaxis.set_major_formatter(ticker.FormatStrFormatter('%.1f'))
+plt.savefig('figs/svm_auroc.png')
