@@ -52,7 +52,7 @@ pip install -r requirements.txt
 Automatically download from https://cblast.gao-lab.org/download.
 Inside folder: /dataset/
 
-# Experiment
+# Experiments
 
 Pre-training step
 
@@ -96,7 +96,7 @@ Sample figure:
 <img src="figs/sample2.jpeg" height="250"/>
 </p>
 
-# Test with other datasets
+# Test with Other Datasets
 
 To automatically use our code on other datasets, the dataset d should be a .h5 file and have following attributes:
 
@@ -104,16 +104,16 @@ d['exprs']['data']: gene expression data list.
 
 d['exprs']['indices']: column indices for each data in d['exprs']['data'].
 
-d['exprs']['indptr']: positions when row indices change in d['exprs']['indices']
+d['exprs']['indptr']: positions when row indices change in d['exprs']['indices'].
 
-d['exprs']['shape']: the shape of the data matrix
+d['exprs']['shape']: the shape of the data matrix.
 
-d['var_names']: gene names of the data matrix
+d['var_names']: gene names of the data matrix.
 
-d['obs']['cell_ontology_class']: cell type for each gene expression vector
+d['obs']['cell_ontology_class']: cell type for each gene expression vector.
 
 Then put the d.h5 file in /dataset/, and add d in data.dataset_name. Then follow the fine-tuning step instruction above.
-(Notice that we only support human and mouse gene datasets now).
+(Note that we only support human and mouse gene datasets now).
 
 # Questions
 
