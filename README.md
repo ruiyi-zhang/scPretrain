@@ -74,8 +74,10 @@ python fig.py
 sample figures:
 <p align='center'>
 <img src="figs/sample1.jpeg" height="300"/>
+</p>
+<p align='center'>
 <img src="figs/sample2.jpeg" height="250"/>
-
+</p>
 
 # Test with other datasets
 
