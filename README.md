@@ -3,6 +3,16 @@
 
 Pytorch implementation for scPretrain: Multi-task self-supervised learning for cell type classification.
 
+This code has been written using PyTorch >= 1.5.1. If you use any source codes or datasets included in this toolkit in your work, please cite the following paper. The bibtex is listed below:
+<pre>
+@article{scPretrain,
+  title={scPretrain: Multi-task self-supervised learning for cell type classification},
+  author={Zhang, Ruiyi and Luo, Yunan and Ma, Jianzhu and Zhang, Ming and Wang, Sheng},
+  journal={arXiv preprint arXiv:2011.xxxxx},
+  year={2020}
+}
+</pre>
+
 # Abstract
 Rapidly generated scRNA-seq datasets enable us to understand cellular differences and the function
 of each individual cell at single-cell resolution. Cell type classification, which aims at characterizing
@@ -27,13 +37,20 @@ amount of unlabelled data and be applied to annotating increasingly generated sc
 <img src="figs/model.jpg" height="300"/>
 </p>
 
+In the pre-training step, scPretrain assigns a pseudo-label to each
+cell using K-means. These pseudo-labels are used to train a feature extraction encoder, which is
+shared by different datasets and different partitions in a multi-task learning framework. In the
+fine-tuning step, this encoder is used to embed cells in a new dataset to low-dimensional
+representations, which are further used in downstream tasks such as cell clustering and cell type
+classification. 
+
 # Requirements
 ```
 pip install -r requirements.txt
 ```
 # Datasets
 Automatically download from https://cblast.gao-lab.org/download.
-inside folder: /dataset/
+Inside folder: /dataset/
 
 # Experiment
 
@@ -81,5 +98,15 @@ Sample figures:
 
 # Test with other datasets
 
+To automatically use our code on other datasets, the dataset d should be a .h5 file and have following attributes:
 
+d['exprs']['data']: gene expression data list.
+d['exprs']['indices']: column indices for each data in d['exprs']['data'].
+d['exprs']['indptr']: positions when row indices change in d['exprs']['indices']
+d['exprs']['shape']: the shape of the data matrix
+d['var_names']: gene names of the data matrix
+d['obs']['cell_ontology_class']: cell type for each gene expression vector
+
+Then put the d.h5 file in /dataset/, and add d in data.dataset_name. Then follow the fine-tuning step instruction above.
+(Notice that we only support human and mouse gene datasets now).
 
