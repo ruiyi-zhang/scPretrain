@@ -73,11 +73,9 @@ python fig.py
 ```
 sample figures:
 <p align='center'>
-<img src="figs/sample1.jpg" height="300"/>
-</p>
-<p align='center'>
-<img src="figs/sample2.jpg" height="300"/>
-</p>
+<img src="figs/sample1.jpeg" height="300"/>
+<img src="figs/sample2.jpeg" height="300"/>
+
 
 # Test with other datasets
 
