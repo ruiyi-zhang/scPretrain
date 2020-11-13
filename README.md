@@ -21,7 +21,9 @@ logistic regression and support vector machines. scPretrain is able to effective
 amount of unlabelled data and be applied to annotating increasingly generated scRNA-seq datasets.
 
 # Model Architecture
+<p align='center'>
 <img src="figs/model.jpg" height="300"/>
+</p>
 
 # Requirements
 ```
@@ -56,6 +58,11 @@ test other off-the-shelf classifiers (e.g SVM)
 ```
 python rf_svm_lr.py --clf svm 
 ```
+produce cluster results using scPretrain generated representations and UMAP reducer
+
+```
+python clus.py 
+```
 
 # Figures
 
@@ -64,3 +71,15 @@ Create the scatter plots of Accuracy, Cohen's Kappa, AUPRC, AUROC, clustering et
 ```
 python fig.py
 ```
+sample figures:
+<p align='center'>
+<img src="figs/sample1.jpg" height="300"/>
+</p>
+<p align='center'>
+<img src="figs/sample2.jpg" height="300"/>
+</p>
+
+# Test with other datasets
+
+
+
