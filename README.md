@@ -101,10 +101,15 @@ Sample figures:
 To automatically use our code on other datasets, the dataset d should be a .h5 file and have following attributes:
 
 d['exprs']['data']: gene expression data list.
+
 d['exprs']['indices']: column indices for each data in d['exprs']['data'].
+
 d['exprs']['indptr']: positions when row indices change in d['exprs']['indices']
+
 d['exprs']['shape']: the shape of the data matrix
+
 d['var_names']: gene names of the data matrix
+
 d['obs']['cell_ontology_class']: cell type for each gene expression vector
 
 Then put the d.h5 file in /dataset/, and add d in data.dataset_name. Then follow the fine-tuning step instruction above.
