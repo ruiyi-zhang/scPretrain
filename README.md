@@ -1,5 +1,6 @@
 # scPretrain
-code for scPretrain: Multi-task self-supervised learning for cell type classification
+<img src="figs/pytorch-logo-dark.png" width="10%"> [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) 
+Pytorch implementation for scPretrain: Multi-task self-supervised learning for cell type classification
 
 # Abstract
 Rapidly generated scRNA-seq datasets enable us to understand cellular differences and the function
@@ -72,9 +73,7 @@ Create the scatter plots of Accuracy, Cohen's Kappa, AUPRC, AUROC, clustering et
 python fig.py
 ```
 sample figures:
-<p align='center'>
-<img src="figs/sample1.jpeg" height="300"/>
-</p>
+
 <p align='center'>
 <img src="figs/sample2.jpeg" height="250"/>
 </p>
