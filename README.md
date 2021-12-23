@@ -70,6 +70,8 @@ We have already pre-trained a model and it can be downloaded from the following 
 
 https://drive.google.com/file/d/1OjuxWMm9F-ElA_SQx1kRg00XcSWoI6yQ/view?usp=sharing 
 
+After downloading the model above, it can be used for the following fine-tune step directly.
+
 Fine-tuning step: automatically test on 60 datasets. Pre-trained model name required by --pretrained_model.  
 
 ```console 
