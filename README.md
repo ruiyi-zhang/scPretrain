@@ -121,6 +121,8 @@ d['obs']['cell_ontology_class']: cell type for each gene expression vector.
 Then put the d.h5 file in /dataset/, and add d in data.dataset_name. Then follow the fine-tuning step instruction above.
 (Note that we only support human and mouse gene datasets now).
 
+To use numpy array finetune datasets, set the array input parameter to the path of a folder that includes 3 files: feature.npy, label.npy, gene_list.npy.
+
 # Questions
 
 For questions about the data and code, please contact zhangruiyi@pku.edu.cn. We will do our best to provide support and address any issues. We appreciate your feedback!

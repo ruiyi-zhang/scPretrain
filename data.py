@@ -252,7 +252,12 @@ def get_finetune_data(name):
     return feature,label,gene_list
 
 def get_finetune_loader(name,pretrained=True):
-    feature,label,gene_list=get_finetune_data(name)
+    if config.array_input:
+        feature=np.load(config.array_input+'feature.npy')
+        label=np.load(config.array_input+'label.npy')
+        gene_list=np.load(config.array_input+'gene_list.npy')
+    else:
+        feature,label,gene_list=get_finetune_data(name)
     (num_c,num_g)=feature.shape
     num_train=min(int(num_c*config.per_train),config.max_tr_num)
     num_val=min(int(num_c*config.per_val),config.max_tr_num)
