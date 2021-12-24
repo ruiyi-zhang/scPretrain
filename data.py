@@ -252,10 +252,16 @@ def get_finetune_data(name):
     return feature,label,gene_list
 
 def get_finetune_loader(name,pretrained=True):
-    if config.array_input:
-        feature=np.load(config.array_input+'feature.npy')
-        label=np.load(config.array_input+'label.npy')
-        gene_list=np.load(config.array_input+'gene_list.npy')
+    if config.np_input:
+        feature=np.load(config.np_input+'feature.npy')
+        label=np.load(config.np_input+'label.npy')
+        gene_list=np.load(config.np_input+'gene_list.npy').tolist()
+    elif config.ann_input:
+        import anndata
+        adata=anndata.read_h5ad(config.ann_input)
+        feature=adata.X
+        label=adata.obs.to_numpy()
+        gene_list=adata.var.values.tolist()
     else:
         feature,label,gene_list=get_finetune_data(name)
     (num_c,num_g)=feature.shape

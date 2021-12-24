@@ -29,7 +29,8 @@ parser.add_argument('--save_result',type=str,default='results/result.out')
 parser.add_argument('--fold1',type=int,default=1)
 parser.add_argument('--fold2',type=int,default=1)
 parser.add_argument('--clf',type=str)
-parser.add_argument('--array_input',type=str)
+parser.add_argument('--np_input',type=str)
+parser.add_argument('--ann_input',type=str)
 
 args=parser.parse_args()
 mixed=args.mixed
@@ -59,4 +60,6 @@ save_result=args.save_result
 fold1=args.fold1
 fold2=args.fold2
 clf=args.clf
-array_input=args.array_input
+ann_input=args.ann_input
+np_input=args.np_input
+
